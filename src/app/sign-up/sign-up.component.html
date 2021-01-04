@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="columns">
+        <div class="column is-4 is-offset-4">
+            <div class="card">
+                <div class="card-content">
+
+                    <form [formGroup]="signUpForm">
+                        <div class="field">
+                            <label class="label">Họ Tên</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Họ tên" formControlName="name">
+                            </div>
+                            <div *ngIf="name && name.invalid && (name.dirty || name.touched)">
+                                <p class="help is-danger" *ngIf="name.errors && name.errors.required">Họ tên không được để trống</p>
+                            </div>
+                        </div>
+    
+                        <div class="field">
+                            <label class="label">Số điện thoại</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Số điện thoại" formControlName="phone">
+                            </div>
+                            <div *ngIf="phone && phone.invalid && (phone.dirty || phone.touched)">
+                                <p class="help is-danger" *ngIf="phone.errors && phone.errors.required">Số điện thoại không được để trống</p>
+                            </div>
+                        </div>
+    
+                        <div class="field">
+                            <label class="label">E-Mail</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="E-Mail" formControlName="email">
+                            </div>
+                            <div *ngIf="email && email.invalid && (email.dirty || email.touched)">
+                                <p class="help is-danger" *ngIf="email.errors && email.errors.required">E-Mail không được để trống</p>
+                            </div>
+                        </div>
+            
+                        <div class="field">
+                            <label class="label">Mật khẩu</label>
+                            <div class="control">
+                                <input class="input" type="password" placeholder="Mật khẩu" formControlName="password">
+                            </div>
+                            <div *ngIf="password && password.invalid && (password.dirty || password.touched)">
+                                <p class="help is-danger" *ngIf="password.errors && password.errors.required">Mật khẩu không được để trống</p>
+                            </div>
+                        </div>
+    
+                        <div class="field">
+                            <label class="label">Xác nhận mật khẩu</label>
+                            <div class="control">
+                                <input class="input" type="password" placeholder="Xác nhận mật khẩu" formControlName="re_password">
+                            </div>
+                            <div *ngIf="re_password && re_password.invalid && (re_password.dirty || re_password.touched)">
+                                <p class="help is-danger" *ngIf="re_password.errors && re_password.errors.required">Xác nhận mật khẩu không được để trống</p>
+                            </div>
+                        </div>
+    
+                        <button class="button is-primary">Đăng Ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="columns">
+        <div class="column is-4 is-offset-4">
+            <div class="card">
+                <div class="card-content">
+                    <form [formGroup]="logInForm" (ngSubmit)="handleSubmit()">
+                        <div class="field">
+                            <label class="label">E-Mail</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="E-Mail" formControlName="email">
+                            </div>
+                            <div *ngIf="email && email.invalid && (email.dirty || email.touched)">
+                                <p class="help is-danger" *ngIf="email.errors && email.errors.required">E-Mail không được để trống</p>
+                            </div>
+                            
+                        </div>
+            
+                        <div class="field">
+                            <label class="label">Mật khẩu</label>
+                            <div class="control">
+                                <input class="input" type="password" placeholder="Mật khẩu" formControlName="password">
+                            </div>
+                            <div *ngIf="password && password.invalid && (password.dirty || password.touched)">
+                                <p class="help is-danger" *ngIf="password.errors && password.errors.required">Mật khẩu không được để trống</p>
+                            </div>
+                        </div>
+    
+                        <button class="button is-primary" type="submit">Đăng Nhập</button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

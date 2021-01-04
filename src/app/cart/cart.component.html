@@ -1,0 +1,49 @@
+<div class="container">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="#">Bulma</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Components</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="card my-4" *ngFor="let book of books">
+        <div class="card-content">
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-4by3">
+                        <img [src]="book.thumbnail" [alt]="book.name">
+                    </figure>
+                </div>
+                <div class="column is-9 is-flex align-self">
+                    <div class="level" style="width: 100%;">
+                        <div class="level-left">
+                            <div>
+                                <div class="name">{{ book.name }}</div>
+                                <div class="price-discount">
+                                    <b class="price-discount__price is-size-4">
+                                        {{ book.price | currency:'VND':'symbol':'1.0-0'}}
+                                    </b>
+                                    <span class="price-discount__discount has-text-danger">{{ book.discount > 0 ? '-' +
+                                    book.discount + '%' : '' }}</span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="level-right">
+                            <input type="number" class="mr-5" [formControl]="book.quantityForm">
+                            <button (click)="handleRemoveBook(book.id)" class="button">x</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="total mt-4 is-size-4">
+        Tổng: <b>{{ total | currency:'VND':'symbol':'1.0-0'}}</b>
+    </div>
+</div>

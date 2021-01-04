@@ -1,0 +1,49 @@
+<div class="container">
+
+    <h2 class="title">Sách mới cập nhật</h2>
+
+    <!-- List products -->
+    <div class="columns is-multiline">
+
+        <div class="column is-3" *ngFor="let book of books">
+            <a routerLink="/sach/book">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img [src]="book.thumbnail" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="name">
+                            <span class="title is-5">{{ book.name }}</span>
+                        </div>
+                        <div class="price-discount">
+                            <b class="price-discount__price">
+                                {{ book.price | currency:'VND':'symbol':'1.0-0'}}
+                            </b>
+                            <span class="price-discount__discount has-text-danger">{{ book.discount > 0 ? '-' + book.discount + '%' : '' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <!-- List products -->
+
+    <!-- Pagination -->
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <a class="pagination-previous">Trang trước</a>
+        <a class="pagination-next">Trang tiếp theo</a>
+        <ul class="pagination-list">
+            <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+            <li><span class="pagination-ellipsis">&hellip;</span></li>
+            <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+            <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+            <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
+            <li><span class="pagination-ellipsis">&hellip;</span></li>
+            <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+        </ul>
+    </nav>
+    <!-- Pagination -->
+</div>
